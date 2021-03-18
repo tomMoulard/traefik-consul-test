@@ -4,6 +4,7 @@
         "name": "whoami",
         "tags": [
             "traefik.enable=true",
+            "traefik.connect=false",
             "traefik.http.routers.router1.rule=Host(`whoami.localhost`)"
         ],
         "address": "whoami1",

@@ -12,7 +12,7 @@ services:
       - '--providers.consulcatalog=true'
       - '--providers.file.directory=/etc/traefik/files/'
       - '--providers.consulcatalog.connectaware=true'
-      - '--providers.consulcatalog.connectbydefault=true'
+#      - '--providers.consulcatalog.connectbydefault=true'
       - '--providers.consulcatalog.servicename=traefik'
     ports:
       - "80:80"
