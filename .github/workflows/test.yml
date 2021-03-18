@@ -8,5 +8,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Build image
+        run: |
+          git clone https://github.com/Gufran/traefik
+          cd traefik
+          git chekcout consul-connect-backend
+          make build-image
       - name: Run tests
         run: make
