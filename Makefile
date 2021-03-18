@@ -10,6 +10,6 @@ sleep:
 	sleep 20s
 
 test:
-	curl  -v http://localhost 2>&1 | grep "< HTTP"
+	curl -v http://localhost 2>&1 | grep "< HTTP"
 	curl -v http://whoami.localhost 2>&1 | grep "< HTTP"
 
