@@ -1,0 +1,23 @@
+version: '3.6'
+
+services:
+  traefik:
+    # image compiled from https://github.com/traefik/traefik/pull/7407
+    image: traefik/traefik:latest
+    #    image: traefik:2.4.7
+    command:
+      - '--api.insecure=true'
+      - '--log.level=DEBUG'
+      - '--providers.consulcatalog.endpoint.address=consul:8500'
+      - '--providers.consulcatalog=true'
+      - '--providers.file.directory=/etc/traefik/files/'
+      - '--providers.consulcatalog.connectaware=true'
+      - '--providers.consulcatalog.connectbydefault=true'
+      - '--providers.consulcatalog.servicename=traefik'
+    ports:
+      - "80:80"
+      - "8080:8080"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    links:
+      - consul

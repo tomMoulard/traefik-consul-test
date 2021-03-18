@@ -1,0 +1,12 @@
+{
+    "service": {
+        "id": "whoami1",
+        "name": "whoami",
+        "tags": [
+            "traefik.enable=true",
+            "traefik.http.routers.router1.rule=Host(`whoami.localhost`)"
+        ],
+        "address": "whoami1",
+        "port": 80
+    }
+}
