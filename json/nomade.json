@@ -5,9 +5,7 @@
         "tags": [
             "traefik.enable=true",
             "traefik.connect=true",
-            "traefik.http.routers.router1.rule=Host(`localhost`)",
-            "traefik.http.routers.router1.service=service1",
-            "traefik.http.services.service1.loadBalancer.server.url=https://connect"
+            "traefik.http.routers.router1.rule=Host(`localhost`)"
         ],
         "address": "connect",
         "port": 443,
