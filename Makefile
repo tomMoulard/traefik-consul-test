@@ -1,12 +1,13 @@
-DC="docker-compose -f docker-compose.yml -f docker-compose.consul.yml"
-
-all: down up test
+all: down up sleep test
 
 up:
-	${DC} up -d
+	docker-compose up -d
 
 down:
-	${DC} down
+	docker-compose down
+
+sleep:
+	sleep 20s
 
 test:
 	curl  -v http://localhost 2>&1 | grep "< HTTP"
