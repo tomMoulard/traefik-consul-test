@@ -12,7 +12,7 @@ jobs:
         run: |
           git clone https://github.com/Gufran/traefik
           cd traefik
-          git chekcout consul-connect-backend
+          git checkout consul-connect-backend
           make build-image
       - name: Run tests
         run: make
