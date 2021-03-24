@@ -26,7 +26,7 @@ services:
     image: consul:1.6.2
     ports:
       - 8500:8500
-    command: "agent -server -bootstrap -ui -client 0.0.0.0 -hcl 'connect { enabled = true }' -config-dir /json"
+    command: "agent -server -bootstrap -ui -client 0.0.0.0 -hcl 'connect { enabled = true }' -grpc-port 8502 -config-dir /json"
     volumes:
       - './json:/json'
 
@@ -41,6 +41,21 @@ services:
   whoami1:
     image: traefik/whoami
     hostname: whoami1
+
+  whoami-connect:
+    image: traefik/whoami
+    hostname: whoami-connect
+
+  whoami-connect-sidecar:
+    build: envoy
+    ports:
+      - 443
+    links:
+      - consul
+    command: "connect envoy -sidecar-for whoami-connect1"
+    environment:
+      CONSUL_HTTP_ADDR: http://consul:8500
+      CONSUL_GRPC_ADDR: consul:8502
 
   connect:
     image: hashicorpnomad/uuid-api:v5

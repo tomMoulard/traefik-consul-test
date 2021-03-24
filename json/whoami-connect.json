@@ -1,0 +1,13 @@
+{
+    "service": {
+        "id": "whoami-connect1",
+        "name": "whoami-connect",
+        "tags": [
+            "traefik.enable=true",
+            "traefik.connect=true",
+            "traefik.http.routers.whoami-connect.rule=Host(`whoami-connect.localhost`)"
+        ],
+        "address": "whoami-connect",
+        "port": 80
+    }
+}
